@@ -1,1 +1,1 @@
-# test-project
+# stock-buddy

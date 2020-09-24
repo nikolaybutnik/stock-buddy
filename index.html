@@ -1,65 +1,207 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Stocks Organizer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-          <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar is-dark">
       <div class="navbar-brand">
         <div class="navbar-item">
-          <h1 id="stockbuddy-main-title">
-            Stockbuddy
-          </h1>
-          <img id="stockbuddy-icon" src="./icon1.png">
+          <h1 id="stockbuddy-main-title">Stockbuddy</h1>
+          <img id="stockbuddy-icon" src="./icon1.png" />
         </div>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <div
+          class="navbar-burger burger"
+          data-target="navbarExampleTransparentExample"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
+
       <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-start">
           <div class="navbar-item has-dropdown is-hoverable">
+            <!-- Search field -->
             <a class="navbar-link">
-              <input id="stockbuddy-search" class="button is rounded" type="text" placeholder="Search">
+              <input
+                id="stockbuddy-search"
+                class="button is-rounded"
+                type="text"
+                placeholder="Search"
+              />
+              <button id="search-btn">
+                <img src="./icon-search.png" id="search-button-img" alt="Search Button">
+              </button>
             </a>
-            <div class="navbar-dropdown is-boxed">
-            </div>
+            <!--  -->
+
+            <!-- Put search contents here -->
+            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div>
           </div>
+
+            <!-- Sidebar -->
+          <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          </div>
+          <div id="open-sidebar">
+            <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+              <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button">
+            </button>  
+          </div> 
+            <!--  -->
         </div>
       </div>
     </nav>
-            <!--  -->
+    <!--  -->
 
-            <!-- Main Container -->
-    <div id="main-container" class="container">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quia, vero dolorum, modi neque eum eveniet necessitatibus, sed ex delectus quod libero! Culpa rem cum praesentium provident iste similique neque!</p>
-    </div>
-            <!--  -->
 
-            <!-- Footer -->
-        <div class="wrapper">
-            <div id="footer">
-              <button class="button is-small is-dark is-rounded" id="github-footer">
-                <span class="icon is-small">
-                  <i class="fab fa-github">
-                  </i>
-                </span>
-                <span>GitHub</span>
-              </button>
+    <!-- Draggable Cards -->
+    <ul id="sortable-stocks">
+
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h4>
+                  This Card is first
+                </h4>
+                <p>
+                  Stock Price: xx.xx$
+                </p>
+                <p>
+                  Increase: xx.xx%
+                </p>
+              </div>
             </div>
+            <div id="checkmark" class="media-right">
+              <a class="media-right" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </article>
         </div>
-            <!--  -->
-            
-  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-  <script src="./main.js"></script>
-</body>
+      </li>
+
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h4>
+                  This Card is second
+                </h4>
+                <p>
+                  Stock Price: xx.xx$
+                </p>
+                <p>
+                  Increase: xx.xx%
+                </p>
+              </div>
+            </div>
+            <div id="checkmark" class="media-right">
+              <a class="media-right" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </li>
+
+      <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h4>
+                  This Card is third
+                </h4>
+                <p>
+                  Stock Price: xx.xx$
+                </p>
+                <p>
+                  Increase: xx.xx%
+                </p>
+              </div>
+            </div>
+            <div id="checkmark" class="media-right">
+              <a class="media-right" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-check" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </li>
+
+    </ul>
+    <!--  -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <button class="button is-small is-dark is-rounded" id="github-footer">
+        <span class="icon is-small">
+          <i class="fab fa-github"> </i>
+        </span>
+      </button>
+
+      <button class="button is-small is-dark is-rounded" id="github-footer">
+        <span class="icon is-small">
+          <i class="fab fa-facebook"> </i>
+        </span>
+      </button>
+
+      <button class="button is-small is-dark is-rounded" id="github-footer">
+        <span class="icon is-small">
+          <i class="fab fa-twitter"> </i>
+        </span>
+      </button>
+
+      <button class="button is-small is-dark is-rounded" id="github-footer">
+        <span class="icon is-small">
+          <i class="fab fa-reddit"> </i>
+        </span>
+      </button>
+
+      <button class="button is-small is-dark is-rounded" id="github-footer">
+        <span class="icon is-small">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </button>
+    </div>
+    <!--  -->
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="script.js"></script>
+    <script src="apiscript.js"></script>
+    <!--  -->
+  </body>
 </html>

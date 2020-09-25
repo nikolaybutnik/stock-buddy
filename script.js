@@ -16,16 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Movable cards
-$(function () {
-  $("#sortable-stocks").sortable();
-  $("#sortable-stocks").disableSelection();
-});
 
 //  NY Times sidebar
 function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidebar").style.width = "360px";
+  document.getElementById("main").style.marginLeft = "360px";
 }
 
 function closeNav() {

@@ -3,22 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
     <title>Stocks Organizer</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
-    />
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <!-- Navbar -->
@@ -28,10 +19,7 @@
           <h1 id="stockbuddy-main-title">Stockbuddy</h1>
           <img id="stockbuddy-icon" src="./icon1.png" />
         </div>
-        <div
-          class="navbar-burger burger"
-          data-target="navbarExampleTransparentExample"
-        >
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
           <span></span>
@@ -39,57 +27,26 @@
       </div>
 
       <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <!-- Search field -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <!-- Search field -->
+          <div class="navbar-item">
             <a class="navbar-link">
-              <input
-                id="stockbuddy-search"
-                class="button is-rounded"
-                type="text"
-                placeholder="Search"
-              />
+              <input id="stockbuddy-search" class="button is-rounded" type="text" placeholder="Search"/>
               <button id="search-btn">
-                <img
-                  src="./icon-search.png"
-                  id="search-button-img"
-                  alt="Search Button"
-                />
+                <img src="./icon-search.png" id="search-button-img" alt="Search Button"/>
               </button>
-            </a>
-            <!--  -->
-
-            <!-- Put search contents here -->
-            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div>
-          </div>
-
-          <!-- Sidebar -->
-          <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-              >×</a
-            >
-          </div>
-          <div id="open-sidebar">
-            <button
-              class="openbtn"
-              id="nytimes-sidebar-button"
-              onclick="openNav()"
-            >
-              <img
-                src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png"
-                alt="News panel"
-                id="nytimes-sidebar-button"
-              />
-            </button>
-          </div>
+            </a>  
           <!--  -->
+          <!-- Cards -->
+            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div>
+          <!--  -->
+          </div>
         </div>
       </div>
     </nav>
     <!--  -->
 
     <!-- Draggable Cards -->
-
     <ul id="sortable-stocks">
       <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
@@ -108,6 +65,14 @@
                   <i class="fas fa-check" aria-hidden="true"></i>
                 </span>
               </a>
+            </div>
+            <div class="navbar-item">
+              <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+                <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
+              </button>
+              <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+              </div>
             </div>
           </article>
         </div>
@@ -131,6 +96,14 @@
                 </span>
               </a>
             </div>
+            <!-- Sidebar -->
+            <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+              <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
+            </button>
+            <div id="mySidebar" class="sidebar">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            </div>
+            <!--  -->
           </article>
         </div>
       </li>
@@ -201,7 +174,6 @@
         </div>
       </li>
     </ul>
-
     <!--  -->
 
     <!-- Footer -->
@@ -239,10 +211,8 @@
     <!--  -->
 
     <!-- Script -->
-    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.12.0/dist/sortable.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script src="script.js"></script>
     <script src="apiscript.js"></script>

@@ -8,7 +8,6 @@ body {
 }
 /*  */
 
-
 /* ID's */
 #footer {
   background-color: #363636;
@@ -33,16 +32,14 @@ body {
 #search-btn {
   background-color: transparent;
   border: none;
-  padding-top: 10px;
-  padding-left: 4px;
-  margin-bottom: 10px;
   width: 40px;
   height: 40px;
 }
 
 #search-button-img {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
+  padding-top: 3px;
 }
 
 #stockbuddy-icon {
@@ -60,19 +57,18 @@ body {
 }
 
 #main {
-  transition: margin-left .5s;
+  transition: margin-left 0.5s;
   padding-left: 0px;
-  background-color:transparent
+  background-color: transparent;
 }
 
 #nytimes-sidebar-button {
   height: 50px;
   width: 60px;
-  background-color:transparent;
-  margin-left: 0px
+  background-color: transparent;
+  margin-left: 0px;
 }
 /*  */
-
 
 /* Footer */
 #github-footer {
@@ -87,34 +83,33 @@ body {
 }
 /* */
 
-
 /*Sortable Buttons  */
 #sortable {
-  list-style-type: none; 
-  margin: 0; 
-  padding: 0; 
-  width: 60%; 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60%;
 }
 
-#sortable li { 
-  margin: 0 3px 3px 3px; 
-  padding: 0.4em; 
-  padding-left: 1.5em; 
-  font-size: 1.4em; 
-  height: 18px; 
+#sortable li {
+  margin: 0 3px 3px 3px;
+  padding: 0.4em;
+  padding-left: 1.5em;
+  font-size: 1.4em;
+  height: 18px;
 }
-#sortable li span { 
-  position: absolute; 
-  margin-left: -1.3em; 
+#sortable li span {
+  position: absolute;
+  margin-left: -1.3em;
 }
 /*  */
-
 
 /* Classes */
 .navbar-item img {
   max-height: 100rem;
 }
-.navbar-link:not(.is-arrowless)::after, .select:not(.is-multiple):not(.is-loading)::after {
+.navbar-link:not(.is-arrowless)::after,
+.select:not(.is-multiple):not(.is-loading)::after {
   content: none;
 }
 
@@ -161,4 +156,3 @@ body {
   background-color: #444;
 }
 /* */
-

@@ -3,6 +3,12 @@ let searchBarEl = document.getElementById("stockbuddy-search");
 let dropdownEl = document.getElementById("dropdown-menu");
 let searchBtn = document.getElementById("search-btn");
 
+let draggableCards = document.getElementById("sortable-stocks");
+new Sortable(draggableCards, {
+  animation: 150,
+  ghostClass: "blue-background-class",
+});
+
 // Hook into Yahoo Finance API and pull query-related stock data.
 // symbol = REQUIRED. The value of symbol field returned in …/auto-complete endpoint
 // region = OPTIONAL. One of the following is allowed US|BR|AU|CA|FR|DE|HK|IN|IT|ES|GB|SG
@@ -114,5 +120,5 @@ function createCard(
 //     console.log(response);
 //   });
 
-// Define a click event to call the API.
+// Define a click event to call the stock search API.
 searchBtn.addEventListener("click", callApi);

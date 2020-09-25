@@ -16,13 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 // Movable cards
-$( function() {
+$(function () {
   $("#sortable-stocks").sortable();
   $("#sortable-stocks").disableSelection();
 });
-
 
 //  NY Times sidebar
 function openNav() {
@@ -32,5 +30,5 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("main").style.marginLeft = "0";
 }

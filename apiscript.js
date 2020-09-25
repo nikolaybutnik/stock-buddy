@@ -2,8 +2,8 @@
 let searchBarEl = document.getElementById("stockbuddy-search");
 let dropdownEl = document.getElementById("dropdown-menu");
 let searchBtn = document.getElementById("search-btn");
-
 let draggableCards = document.getElementById("sortable-stocks");
+
 new Sortable(draggableCards, {
   animation: 150,
   ghostClass: "blue-background-class",
@@ -21,7 +21,7 @@ function callApi() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-        "x-rapidapi-key": "64a4bdf806msh01c27c0f2438b3cp12bd4ejsn18b80e4ba60a",
+        "x-rapidapi-key": "3d3d6acfdcmshc5411745f4f6fb1p19b934jsn42606b707110",
       },
     }
   )
@@ -31,7 +31,7 @@ function callApi() {
 
     // *** Catch errors when logo image can't be found (example: McDonalds) and replace with placeholder image.
     .then(function (response) {
-      console.log(response);
+      // console.log(response);
       let website = response.summaryProfile.website;
       let logo = "https://logo.clearbit.com/" + website; // Set this as img source.
       let companyName = response.quoteType.longName;
@@ -41,8 +41,8 @@ function callApi() {
       let marketChange = response.quoteData[
         symbol
       ].regularMarketChangePercent.raw.toFixed(1);
-      console.log(marketChange);
-      createCard(
+      // console.log(marketChange);
+      createSearchCard(
         logo,
         companyName,
         currencySymbol,
@@ -55,7 +55,7 @@ function callApi() {
 }
 
 // function that creates a mini card
-function createCard(
+function createSearchCard(
   logo,
   companyName,
   currencySymbol,
@@ -63,6 +63,8 @@ function createCard(
   currency,
   marketChange
 ) {
+  // Define a click event on search card side arrows that calls a function to create a main content card and push it on the screen.
+  // Define how the up/down arrow will display.
   let arrow = function () {
     if (marketChange > 0) {
       arrow = `<i class="far fa-arrow-alt-circle-up" style="color:green"></i>`;
@@ -73,29 +75,75 @@ function createCard(
   arrow();
   const cardHTML = `
     <div class="box">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image">
-                    <img src=${logo}?size=84 alt="company-logo"/>
-                </figure>
-            </div>
-            <div class="media-content">
-                <div class="content">
-                    <h4><strong>${companyName}</strong></h4>
-                    <p><strong>Current Price: ${currencySymbol}${currentPrice} ${currency}</strong></p>
-                    <p><strong>Market change: ${marketChange}%</strong> ${arrow}</p>
-                    </div>
-            </div>
-            <div id="checkmark" class="media-right">
-                <a class="media-right" aria-label="like">
-                    <span class="icon is-small">
-                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                    </span>
-                </a>
-            </div>
-        </article>
+      <article class="media">
+        <div class="media-left">
+          <figure class="image">
+            <img src=${logo}?size=84 alt="company-logo"/>
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <h4><strong>${companyName}</strong></h4>
+            <p><strong>Current Price: ${currencySymbol}${currentPrice} ${currency}</strong></p>
+            <p><strong>Market change: ${marketChange}%</strong> ${arrow}</p>
+          </div>
+        </div>
+        <div id="checkmark" class="media-right">
+          <a class="media-right" aria-label="like">
+            <button class="icon add-to-workspace">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </a>
+        </div>
+      </article>
     </div>`;
   dropdownEl.innerHTML += cardHTML;
+  let addToWorkspaceBtn = document.getElementsByClassName("add-to-workspace");
+  for (let i = 0; i < addToWorkspaceBtn.length; i++) {
+    addToWorkspaceBtn[i].addEventListener("click", sayHello);
+  }
+}
+
+function sayHello() {
+  console.log("Hello");
+}
+
+function createMainCard(
+  logo,
+  companyName,
+  currencySymbol,
+  currentPrice,
+  currency,
+  marketChange
+) {
+  const cardHTML = ` 
+    <li class="ui-state-default">
+      <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image">
+              <img src=${logo}?size=84 alt="company-logo"/>
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <h4><strong>${companyName}</strong></h4>
+              <p><strong>Current Price: ${currencySymbol}${currentPrice} ${currency}</strong></p>
+              <p><strong>Market change: ${marketChange}%</strong> ${arrow}</p>
+            </div>
+          </div>
+          <div id="checkmark" class="media-right">
+            <a class="media-right" aria-label="like">
+              <span class="icon is-small">
+                <i class="fas fa-check" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </li>`;
+  draggableCards.innerHTML += cardHTML;
 }
 
 // Hook into Yahoo Finance API and pull query-related stock chart. Use the symbol from lat query.

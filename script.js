@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //  NY Times sidebar
 function openNav() {
-  document.getElementById("mySidebar").style.width = "360px";
-  document.getElementById("main").style.marginLeft = "360px";
+  document.getElementById("mySidebar").style.width = "300px";
+  document.getElementById("main").style.marginLeft = "300px";
 }
 
 function closeNav() {

@@ -25,7 +25,7 @@ body {
 }
 #stockbuddy-search {
   font-size: 15px;
-  width: 310px;
+  width: 300px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
@@ -62,7 +62,7 @@ body {
 }
 
 #main {
-  transition: margin-left 0.5s;
+  transition: 0.5s;
   padding-left: 0px;
   background-color: transparent;
 }
@@ -71,7 +71,8 @@ body {
   height: 50px;
   width: 60px;
   background-color: transparent;
-  margin-left: 0px;
+  margin-left: 30px;
+  outline: none;
 }
 /*  */
 
@@ -90,7 +91,7 @@ body {
 
 /* Classes */
 
-.navbar-item{
+.navbar-item {
   padding-top: 3px;
   padding-bottom: 1px;
 }
@@ -117,6 +118,13 @@ body {
 .icon {
   background-color: transparent;
   border: none;
+}
+
+#search-cards {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .sidebar {
@@ -159,7 +167,7 @@ body {
   position: absolute;
   top: 0;
   font-size: 36px;
-  margin-left: 290px;
+  margin-left: 230px;
   margin-top: 40px;
 }
 /* */

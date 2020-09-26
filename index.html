@@ -29,16 +29,19 @@
       <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-item has-dropdown is-hoverable">
           <!-- Search field -->
+          <div class="field is-grouped">
           <div class="navbar-item">
             <a class="navbar-link">
               <input id="stockbuddy-search" class="button is-rounded" type="text" placeholder="Search"/>
               <button id="search-btn">
                 <img src="./icon-search.png" id="search-button-img" alt="Search Button"/>
               </button>
-            </a>  
+            </a> 
+            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div> 
+          </div>
           <!--  -->
           <!-- Cards -->
-            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div>
+            
           <!--  -->
           </div>
         </div>
@@ -48,7 +51,7 @@
 
     <!-- Draggable Cards -->
     <ul id="sortable-stocks">
-      <li class="ui-state-default">
+      <!-- <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
         <div class="box" id="drag-me">
           <article class="media">
@@ -76,9 +79,9 @@
             </div>
           </article>
         </div>
-      </li>
+      </li> -->
 
-      <li class="ui-state-default">
+      <!-- <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
         <div class="box">
           <article class="media">
@@ -95,20 +98,20 @@
                   <i class="fas fa-check" aria-hidden="true"></i>
                 </span>
               </a>
-            </div>
+            </div> -->
             <!-- Sidebar -->
-            <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+            <!-- <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
               <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
             </button>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            </div>
+            </div> -->
             <!--  -->
-          </article>
+          <!-- </article>
         </div>
-      </li>
+      </li> -->
 
-      <li class="ui-state-default">
+      <!-- <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
         <div class="box">
           <article class="media">
@@ -128,9 +131,9 @@
             </div>
           </article>
         </div>
-      </li>
+      </li> -->
 
-      <li class="ui-state-default">
+      <!-- <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
         <div class="box">
           <article class="media">
@@ -150,9 +153,9 @@
             </div>
           </article>
         </div>
-      </li>
+      </li> -->
 
-      <li class="ui-state-default">
+      <!-- <li class="ui-state-default">
         <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
         <div class="box">
           <article class="media">
@@ -173,8 +176,12 @@
           </article>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <!--  -->
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    </div>
 
     <!-- Footer -->
     <div id="footer">
@@ -209,11 +216,21 @@
       </button>
     </div>
     <!--  -->
-
-    <!-- Script -->
+    
+    <!-- Chart js testing -->
+    <!-- <div class="container">
+      <canvas id="myChart"></canvas>
+    </div> -->
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <!-- Sortable.js -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.12.0/dist/sortable.umd.min.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <!-- Custom scripts -->
     <script src="script.js"></script>
     <script src="apiscript.js"></script>
     <!--  -->

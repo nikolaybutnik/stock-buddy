@@ -4,6 +4,7 @@ let dropdownEl = document.getElementById("dropdown-menu");
 let searchBtn = document.getElementById("search-btn");
 let draggableCards = document.getElementById("sortable-stocks");
 
+// Make the cards on screen sortable.
 new Sortable(draggableCards, {
   animation: 150,
   ghostClass: "blue-background-class",
@@ -48,7 +49,8 @@ function callApi() {
         currencySymbol,
         currentPrice,
         currency,
-        marketChange
+        marketChange,
+        symbol
       );
     });
   searchBarEl.value = "";
@@ -61,7 +63,8 @@ function createSearchCard(
   currencySymbol,
   currentPrice,
   currency,
-  marketChange
+  marketChange,
+  symbol
 ) {
   // Define a click event on search card side arrows that calls a function to create a main content card and push it on the screen.
   // Define how the up/down arrow will display.
@@ -74,7 +77,7 @@ function createSearchCard(
   };
   arrow();
   const cardHTML = `
-    <div class="box">
+    <div class="box" id="search-cards">
       <article class="media">
         <div class="media-left">
           <figure class="image">
@@ -83,7 +86,7 @@ function createSearchCard(
         </div>
         <div class="media-content">
           <div class="content">
-            <h4><strong>${companyName}</strong></h4>
+            <h4><strong>${companyName} (${symbol})</strong></h4>
             <p><strong>Current Price: ${currencySymbol}${currentPrice} ${currency}</strong></p>
             <p><strong>Market change: ${marketChange}%</strong> ${arrow}</p>
           </div>
@@ -100,22 +103,31 @@ function createSearchCard(
   dropdownEl.innerHTML += cardHTML;
   let addToWorkspaceBtn = document.getElementsByClassName("add-to-workspace");
   for (let i = 0; i < addToWorkspaceBtn.length; i++) {
-    addToWorkspaceBtn[i].addEventListener("click", sayHello);
+    addToWorkspaceBtn[i].addEventListener("click", createMainCard);
   }
 }
 
-function sayHello() {
-  console.log("Hello");
-}
-
-function createMainCard(
-  logo,
-  companyName,
-  currencySymbol,
-  currentPrice,
-  currency,
-  marketChange
-) {
+// Define a function that creates a main content card by clicking a button on a search result, and pushes it to the main workspace.
+function createMainCard(event) {
+  let logo = event.currentTarget.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.firstElementChild.firstElementChild.getAttribute(
+    "src"
+  );
+  let companyName =
+    event.currentTarget.parentElement.parentElement.parentElement.parentElement
+      .firstElementChild.children[1].firstElementChild.firstElementChild
+      .textContent;
+  let currentPrice =
+    event.currentTarget.parentElement.parentElement.parentElement.parentElement
+      .firstElementChild.children[1].firstElementChild.children[1]
+      .firstElementChild.textContent;
+  let marketChange =
+    event.currentTarget.parentElement.parentElement.parentElement.parentElement
+      .firstElementChild.children[1].firstElementChild.children[2]
+      .firstElementChild.textContent;
+  let arrow =
+    event.currentTarget.parentElement.parentElement.parentElement.parentElement
+      .firstElementChild.children[1].firstElementChild.children[2].children[1]
+      .outerHTML;
   const cardHTML = ` 
     <li class="ui-state-default">
       <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
@@ -129,8 +141,8 @@ function createMainCard(
           <div class="media-content">
             <div class="content">
               <h4><strong>${companyName}</strong></h4>
-              <p><strong>Current Price: ${currencySymbol}${currentPrice} ${currency}</strong></p>
-              <p><strong>Market change: ${marketChange}%</strong> ${arrow}</p>
+              <p><strong>${currentPrice}</strong></p>
+              <p><strong>${marketChange}</strong> ${arrow}</p>
             </div>
           </div>
           <div id="checkmark" class="media-right">
@@ -140,24 +152,32 @@ function createMainCard(
               </span>
             </a>
           </div>
+          <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+            <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
+          </button>
         </article>
       </div>
     </li>`;
   draggableCards.innerHTML += cardHTML;
 }
 
+// Define a click event to call the stock search API.
+searchBtn.addEventListener("click", callApi);
+
 // Hook into Yahoo Finance API and pull query-related stock chart. Use the symbol from lat query.
 // Interval = REQUIRED. One of the following is allowed 1m|2m|5m|15m|60m|1d.
 // Symbol = REQUIRED. The value of symbol field returned in …/auto-complete endpoint
 // Range = REQUIRED. One of the following is allowed 1d|5d|1mo|3mo|6mo|1y|2y|5y|10y|ytd|max. Do not use together with period1 and period2.
 
+// let symbol = "TSLA";
+
 // fetch(
-//   `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?region=US&interval=1m&symbol=${symbol}&range=1d`,
+//   `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-chart?region=US&interval=1d&symbol=${symbol}&range=1mo`,
 //   {
 //     method: "GET",
 //     headers: {
 //       "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-//       "x-rapidapi-key": "64a4bdf806msh01c27c0f2438b3cp12bd4ejsn18b80e4ba60a",
+//       "x-rapidapi-key": "3d3d6acfdcmshc5411745f4f6fb1p19b934jsn42606b707110",
 //     },
 //   }
 // )
@@ -167,6 +187,3 @@ function createMainCard(
 //   .then(function (response) {
 //     console.log(response);
 //   });
-
-// Define a click event to call the stock search API.
-searchBtn.addEventListener("click", callApi);

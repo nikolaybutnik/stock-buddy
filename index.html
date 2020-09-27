@@ -7,13 +7,12 @@
     <title>Stocks Organizer</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar is-dark">
+    <!-- <nav class="navbar is-dark">
       <div class="navbar-brand">
         <div class="navbar-item">
           <h1 id="stockbuddy-main-title">Stockbuddy</h1>
@@ -27,9 +26,9 @@
       </div>
 
       <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-item has-dropdown is-hoverable"> -->
           <!-- Search field -->
-          <div class="field is-grouped">
+          <!-- <div class="field is-grouped">
           <div class="navbar-item">
             <a class="navbar-link">
               <input id="stockbuddy-search" class="button is-rounded" type="text" placeholder="Search"/>
@@ -38,16 +37,32 @@
               </button>
             </a> 
             <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div> 
-          </div>
+          </div> -->
           <!--  -->
           <!-- Cards -->
             
           <!--  -->
-          </div>
+          <!-- </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!--  -->
+
+    <!-- NEW NAVBAR -->
+    <div class="navbar">
+      <div class="div">
+      <div class="logo">
+        Stockbuddy
+        <img src="./icon1.png" alt="stockbuddy logo" id="stockbuddy-logo-icon">
+      </div>
+    </div>
+      <form class="search-box">
+        <input id="search-input-field" type="text" placeholder="Enter a stock symbol" required style="box-shadow: none">
+        <button type="submit is-rounded" id="search-btn" style="background-color: transparent; border: none;">
+          <img src="./icon-search.png" alt="">
+        </button>
+      </form>
+    </div>
 
     <!-- Draggable Cards -->
     <ul id="sortable-stocks">

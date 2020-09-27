@@ -145,16 +145,18 @@ function createMainCard(event) {
               <p><strong>${marketChange}</strong> ${arrow}</p>
             </div>
           </div>
-          <div id="checkmark" class="media-right">
-            <a class="media-right" aria-label="like">
-              <span class="icon is-small">
-                <i class="fas fa-check" aria-hidden="true"></i>
-              </span>
-            </a>
+          <div class="content">
+            <div id="close" class="media-right">
+              <a class="media-right" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-window-close" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+            <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
+              <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
+            </button>
           </div>
-          <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
-            <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
-          </button>
         </article>
       </div>
     </li>`;

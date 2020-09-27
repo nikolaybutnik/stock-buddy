@@ -18,7 +18,7 @@ body {
   width: 100%;
 }
 
-#stockbuddy-main-title {
+/* #stockbuddy-main-title {
   font-weight: bolder;
   font-size: xx-large;
   font-family: "Josefin Sans", sans-serif;
@@ -55,7 +55,7 @@ body {
 
 #navbarExampleTransparentExample {
   padding: 0em;
-}
+} */
 
 #checkmark {
   margin-top: 40px;
@@ -91,7 +91,7 @@ body {
 
 /* Classes */
 
-.navbar-item {
+/* .navbar-item {
   padding-top: 3px;
   padding-bottom: 1px;
 }
@@ -113,7 +113,7 @@ body {
   padding: 3px;
   padding-top: 5px;
   background-color: transparent;
-}
+} */
 
 .icon {
   background-color: transparent;
@@ -171,3 +171,54 @@ body {
   margin-top: 40px;
 }
 /* */
+
+/* NAVBAR REDO */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+  background-color: #363636;
+  padding: 8px;
+}
+.logo {
+  width: 190px;
+  color: aliceblue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-right: 15px;
+}
+
+#search-input-field {
+  border-radius: 75px;
+  border: solid, 10px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+#search-btn {
+  width: 45px;
+  height: 45px;
+  margin: 8px;
+  padding-top: 7px;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+.search-box input {
+  flex: 1;
+  max-width: 600px;
+}
+.search-box button {
+  width: 60px;
+  margin-left: 0.5rem;
+}

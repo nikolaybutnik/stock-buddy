@@ -3,225 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <title>Stocks Organizer</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+    <title>Stocks Organizer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar is-dark">
-      <div class="navbar-brand">
-        <div class="navbar-item">
-          <h1 id="stockbuddy-main-title">Stockbuddy</h1>
-          <img id="stockbuddy-icon" src="./icon1.png" />
-        </div>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div class="navbar">
+      <div class="div">
+        <div class="logo">
+          Stockbuddy
+          <img
+            src="./icon1.png"
+            alt="stockbuddy logo"
+            id="stockbuddy-logo-icon"
+          />
         </div>
       </div>
+      <form class="search-box">
+        <input
+          id="search-input-field"
+          type="text"
+          placeholder="Enter a stock symbol"
+          required
+          autocomplete="off"
+          style="box-shadow: none"
+          onkeyup="clearResult()"
+        />
+        <button id="submit-search-btn" type="submit is-rounded">
+          <img
+            src="./icon-search.png"
+            alt="search button"
+            id="search-btn-icon"
+          />
+        </button>
+      </form>
+    </div>
 
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <!-- Search field -->
-          <div class="field is-grouped">
-          <div class="navbar-item">
-            <a class="navbar-link">
-              <input id="stockbuddy-search" class="button is-rounded" type="text" placeholder="Search"/>
-              <button id="search-btn">
-                <img src="./icon-search.png" id="search-button-img" alt="Search Button"/>
-              </button>
-            </a> 
-            <div class="navbar-dropdown is-boxed" id="dropdown-menu"></div> 
-          </div>
-          <!--  -->
-          <!-- Cards -->
-            
-          <!--  -->
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!--  -->
+    <div id="search-result"></div>
+
+    <hr class="solid" id="divider-main">
 
     <!-- Draggable Cards -->
-    <ul id="sortable-stocks">
-      <!-- <li class="ui-state-default">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-        <div class="box" id="drag-me">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h4>This Card is first</h4>
-                <p>Stock Price: xx.xx$</p>
-                <p>Increase: xx.xx%</p>
-              </div>
-            </div>
-            <div id="checkmark" class="media-right">
-              <a class="media-right" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-check" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-            <div class="navbar-item">
-              <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
-                <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
-              </button>
-              <div id="mySidebar" class="sidebar">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </li> -->
-
-      <!-- <li class="ui-state-default">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h4>This Card is second</h4>
-                <p>Stock Price: xx.xx$</p>
-                <p>Increase: xx.xx%</p>
-              </div>
-            </div>
-            <div id="checkmark" class="media-right">
-              <a class="media-right" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-check" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div> -->
-            <!-- Sidebar -->
-            <!-- <button class="openbtn" id="nytimes-sidebar-button" onclick="openNav()">
-              <img src="./FAVPNG_current-icon-events-icon-news-icon_MPYgZ004.png" alt="News panel" id="nytimes-sidebar-button"/>
-            </button>
-            <div id="mySidebar" class="sidebar">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            </div> -->
-            <!--  -->
-          <!-- </article>
-        </div>
-      </li> -->
-
-      <!-- <li class="ui-state-default">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h4>This Card is third</h4>
-                <p>Stock Price: xx.xx$</p>
-                <p>Increase: xx.xx%</p>
-              </div>
-            </div>
-            <div id="checkmark" class="media-right">
-              <a class="media-right" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-check" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </li> -->
-
-      <!-- <li class="ui-state-default">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h4>This Card is fourth</h4>
-                <p>Stock Price: xx.xx$</p>
-                <p>Increase: xx.xx%</p>
-              </div>
-            </div>
-            <div id="checkmark" class="media-right">
-              <a class="media-right" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-check" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </li> -->
-
-      <!-- <li class="ui-state-default">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h4>This Card is fifth</h4>
-                <p>Stock Price: xx.xx$</p>
-                <p>Increase: xx.xx%</p>
-              </div>
-            </div>
-            <div id="checkmark" class="media-right">
-              <a class="media-right" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-check" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </li>
-    </ul> -->
+    <ul id="sortable-stocks"></ul>
     <!--  -->
 
     <div id="mySidebar" class="sidebar">
+      <div id="top-articles"></div>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
 
     <!-- Footer -->
     <div id="footer">
-      <button class="button is-small is-dark is-rounded" id="github-footer">
+      <button class="button is-medium is-dark is-rounded" id="github-footer">
         <span class="icon is-small">
           <i class="fab fa-github"> </i>
         </span>
       </button>
 
-      <button class="button is-small is-dark is-rounded" id="github-footer">
+      <button class="button is-medium is-dark is-rounded" id="github-footer">
         <span class="icon is-small">
           <i class="fab fa-facebook"> </i>
         </span>
       </button>
 
-      <button class="button is-small is-dark is-rounded" id="github-footer">
+      <button class="button is-medium is-dark is-rounded" id="github-footer">
         <span class="icon is-small">
           <i class="fab fa-twitter"> </i>
         </span>
       </button>
 
-      <button class="button is-small is-dark is-rounded" id="github-footer">
+      <button class="button is-medium is-dark is-rounded" id="github-footer">
         <span class="icon is-small">
           <i class="fab fa-reddit"> </i>
         </span>
       </button>
 
-      <button class="button is-small is-dark is-rounded" id="github-footer">
+      <button class="button is-medium is-dark is-rounded" id="github-footer">
         <span class="icon is-small">
           <i class="fab fa-instagram"></i>
         </span>
       </button>
     </div>
     <!--  -->
-    
-    <!-- Chart js testing -->
-    <!-- <div class="container">
-      <canvas id="myChart"></canvas>
-    </div> -->
-    
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
     <!-- Sortable.js -->

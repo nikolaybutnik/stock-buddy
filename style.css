@@ -6,7 +6,6 @@ html {
 body {
   padding-bottom: 25px;
 }
-
 /*  */
 
 /* ID's */
@@ -137,6 +136,25 @@ h3 {
   min-width: 227px;
 }
 
+@media only screen and (min-width: 600px) {
+  canvas {
+    max-width: 400px !important;
+    max-height: 200px !important;
+    background-color: #e9e8e8;
+    margin-left: 30px;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  canvas {
+    max-width: 200px !important;
+    max-height: 100px !important;
+    background-color: #e9e8e8;
+    margin-left: 0px;
+    border-radius: 5px;
+  }
+}
 /*  */
 /*  */
 
@@ -329,26 +347,6 @@ a {
   color: white;
 }
 /* */
-
-@media only screen and (min-width: 600px) {
-  canvas {
-    max-width: 400px !important;
-    max-height: 200px !important;
-    background-color: #e9e8e8;
-    margin-left: 30px;
-    border-radius: 5px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  canvas {
-    max-width: 200px !important;
-    max-height: 100px !important;
-    background-color: #e9e8e8;
-    margin-left: 0px;
-    border-radius: 5px;
-  }
-}
 
 /* Scrollbar */
 .sidebar::-webkit-scrollbar {

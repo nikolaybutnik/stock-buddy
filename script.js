@@ -79,6 +79,8 @@ function createSearchCard(
       arrow = `<i class="far fa-arrow-alt-circle-up" style="color:lime"></i>`;
     } else if (marketChange < 0) {
       arrow = `<i class="far fa-arrow-alt-circle-down" style="color:red"></i>`;
+    } else if (marketChange == 0) {
+      arrow = `<i class="fas fa-minus-circle" style="color:grey"></i>`;
     }
   };
   arrow();
@@ -238,7 +240,6 @@ function getChart(symbolExtracted, counter) {
             {
               label: "Price",
               data: priceArr,
-              // backgroundColor: "grey",
             },
           ],
         },
@@ -257,7 +258,8 @@ function getChart(symbolExtracted, counter) {
           },
         },
       });
-    });
+    })
+    .catch((err) => console.log(err));
 }
 
 // Hook into News and pull query-related list of top articles.

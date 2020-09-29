@@ -32,7 +32,7 @@ function callApi() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-        "x-rapidapi-key": "50c99f7898mshe81a6f8d184fa61p11be03jsn662898b66433",
+        "x-rapidapi-key": "a00f07469amshca522c0465de802p15c8b2jsn9878e2c648d0",
       },
     }
   )
@@ -216,7 +216,7 @@ function getChart(symbolExtracted, counter) {
       method: "GET",
       headers: {
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-        "x-rapidapi-key": "50c99f7898mshe81a6f8d184fa61p11be03jsn662898b66433",
+        "x-rapidapi-key": "a00f07469amshca522c0465de802p15c8b2jsn9878e2c648d0",
       },
     }
   )

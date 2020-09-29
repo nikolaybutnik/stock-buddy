@@ -21,10 +21,10 @@ body {
 
 /* Search Cards */
 #search-cards {
-  background-color: #242424;
+  background-color: #3e3e3e;
   margin-bottom: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 #add-to-workspace {
@@ -131,6 +131,10 @@ h3 {
 
 #divider-main {
   margin-bottom: 15px;
+}
+
+#main-card-text {
+  min-width: 227px;
 }
 
 /*  */
@@ -261,7 +265,7 @@ h3 {
 #search-input-field {
   border-radius: 75px;
   border: thick;
-  padding: 8px;
+  padding: 10px;
   margin: 7px;
   padding-left: 25px;
   font-size: 17px;
@@ -320,6 +324,10 @@ strong {
   bottom: 0;
   width: 100%;
 }
+
+a {
+  color: white;
+}
 /* */
 
 @media only screen and (min-width: 600px) {
@@ -343,19 +351,19 @@ strong {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 5px;
   height: 20px;
 }
-::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(155, 155, 155, 0.8);
 }
-::-webkit-scrollbar-thumb:window-inactive {
+.sidebar::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(155, 155, 155, 0.8);
 }

@@ -25,7 +25,6 @@ body {
   margin-bottom: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-}
 
 #add-to-workspace {
   margin-top: 45px;
@@ -98,7 +97,6 @@ box.search-box {
 
 canvas {
   padding: 8px;
-}
 
 hr {
   background-color: rgba(131, 121, 121, 0.623);
@@ -117,6 +115,7 @@ h3 {
   height: 45px;
   width: 45px;
   background-color: transparent;
+
   margin-left: 45px;
 }
 #graph-button {
@@ -321,6 +320,7 @@ strong {
   width: 100%;
 }
 /* */
+
 
 @media only screen and (min-width: 600px) {
   canvas {

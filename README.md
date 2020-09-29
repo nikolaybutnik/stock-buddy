@@ -6,6 +6,8 @@
 
 ## Pupose
 
+Stockbuddy is a web application that aims to help introduce new users to the often confusing
+
 ## Instructions
 
 ## Built With

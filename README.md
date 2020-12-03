@@ -1,5 +1,7 @@
 # Stockbuddy
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [Link to application](https://nikolaybutnik.github.io/stock-buddy/)
 
 ![Stockbuddy Image](https://github.com/nikolaybutnik/stock-buddy/blob/master/images/0-stockbuddy-screenshot.png?raw=true)
